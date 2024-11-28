@@ -1,10 +1,16 @@
-import './App.css';
+/** @jsxImportSource @emotion/react */
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
 
 function App() {
   return (
-    <div className="App">
-      dupa
-    </div>
+    <>
+      <Header />
+      <main css={{ flexGrow: 1 }}>
+        content
+      </main>
+      <Footer />
+    </>
   );
 }
 
