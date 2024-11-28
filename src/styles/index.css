@@ -7,4 +7,11 @@
 body {
 	font-family: "JetBrains Mono", monospace;
 	color: black;
+	background-color: rgb(255, 247, 240);
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 }
