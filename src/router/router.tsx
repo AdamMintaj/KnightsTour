@@ -20,8 +20,12 @@ const router = createBrowserRouter([
         element: <Game />
       },
       {
-        path: "howTo",
+        path: "how-to",
         element: <HowTo />
+      },
+      {
+        path: "*",
+        element: <Error />
       },
     ]
   }
