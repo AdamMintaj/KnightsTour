@@ -1,6 +1,7 @@
-/** @jsxImportSource @emotion/react */
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+
+import * as Styled from './Navigation.styled';
 
 /* Navigation only has links to two out of three existing routes, 
 since linking to the current route makes no sense.
@@ -57,13 +58,13 @@ const Navigation = () => {
   const navLinks = routesArray.slice(1);
 
   return (
-    <nav css={{ display: "flex", gap: "10px" }}>
+    <Styled.Container>
       {
         navLinks.map((link, index) =>
-          <Link key={index} to={link.path}>{link.label}</Link>
+          <Styled.NavLink key={index} to={link.path}>{link.label}</Styled.NavLink>
         )
       }
-    </nav>
+    </Styled.Container>
   );
 }
 
