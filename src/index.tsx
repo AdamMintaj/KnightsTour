@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
-import router from './router/router';
-import './styles/index.css';
-import { ThemeProvider } from '@emotion/react';
-import theme from 'styles/theme';
 import { GameContextProvider } from 'context/GameContext';
+import { ThemeProvider } from '@emotion/react';
+import router from './router/router';
+import theme from 'styles/theme';
+import './styles/index.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
