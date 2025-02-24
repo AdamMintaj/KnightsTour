@@ -9,7 +9,7 @@ since linking to the current route makes no sense.
 Navigation links are rendered by mapping over navLinks array,
 based on routesArray.
 
-While changing routes, UseEffect cycles the routesArray to 
+While changing routes, useEffect cycles the routesArray to 
 create the effect of target route and previous route links swapping
 with the third link staying in its place. */
 
