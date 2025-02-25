@@ -1,11 +1,21 @@
-import achievements from "./achievements";
-import { ActionType } from "context/gameReducer";
-import useGameContext from "context/GameContext";
+import achievementsData from "./achievementsData";
 import Achievement from "./components/Achievement/Achievement";
+import useGameContext from "context/GameContext";
+import Button from "components/ui/Button/Button";
+import List from "./components/List/List";
+import { useState } from "react";
+import { ActionType } from "context/gameReducer";
 import { CheatsData } from "context/gameTypes";
 
-const AchievementsList = () => {
+import * as Styled from './Achievements.styled';
+
+const Achievements = () => {
   const [{ gameStatistics, activeCheats, easyMode }, dispatch] = useGameContext();
+  const [mobilePopupOpen, setMobilePopupOpen] = useState(false);
+
+  function toggleMobilePopup() {
+    setMobilePopupOpen(prevValue => !prevValue)
+  }
 
   function toggleEasyMode() {
     if (easyMode) {
@@ -15,7 +25,7 @@ const AchievementsList = () => {
         ...activeCheats
       };
 
-      achievements.forEach(achievement => {
+      achievementsData.forEach(achievement => {
         if (activeCheats[achievement.cheat] && !gameStatistics[achievement.validatedBy]) {
           updatedActiveCheats = { ...updatedActiveCheats, [achievement.cheat]: false }
         }
@@ -35,25 +45,19 @@ const AchievementsList = () => {
   }
 
   return (
-    <aside className="achievements">
-      <div>
-        easy mode
-        <input type='checkbox' checked={easyMode} onChange={toggleEasyMode} />
-      </div>
-      <div className="achievements__container">
-        achievements list
-        {achievements.map((achievement) => (
-          <Achievement
-            key={achievement.cheat}
-            achievement={achievement}
-            isCompleted={easyMode || gameStatistics[achievement.validatedBy] ? true : false}
-            toggleCheat={() => toggleCheat(achievement.cheat)}
-            isCheatEnabled={activeCheats[achievement.cheat]}
-          />
-        ))}
-      </div>
-    </aside>
+    <>
+      <Button onClick={toggleMobilePopup}>achievements</Button>
+      <Styled.Container $mobilePopupOpen={mobilePopupOpen}>
+        <button onClick={toggleMobilePopup}>close</button>
+        <Styled.Title>achievements</Styled.Title>
+        <div>
+          easy mode
+          <input type='checkbox' checked={easyMode} onChange={toggleEasyMode} />
+        </div>
+        <List />
+      </Styled.Container>
+    </>
   );
 }
 
-export default AchievementsList;
+export default Achievements;

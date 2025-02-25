@@ -10,6 +10,7 @@ export const Label = styled.label<{ $state: "on" | "off" | "disabled" }>`
 	display: block;
 	border-radius: 1rem;
 	transition: 0.4s;
+	background-color: rgb(255, 247, 240);
 
 	${({ $state }) =>
 		$state === "disabled" &&

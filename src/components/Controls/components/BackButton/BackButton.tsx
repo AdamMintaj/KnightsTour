@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { ActionType } from "context/gameReducer";
 import { GameStatus } from "context/gameTypes";
+import Button from "components/ui/Button/Button";
 import useGameContext from "context/GameContext";
 
 function BackButton() {
@@ -18,12 +19,6 @@ function BackButton() {
   }, [activeCheats.unlimitedBacksteps]);
 
   const isButtonLocked = !activeCheats.backsteps && !activeCheats.unlimitedBacksteps;
-
-  // const lockedButtonStyle = {
-  //   cursor: "auto",
-  //   backgroundColor: "rgb(188, 167, 157)",
-  //   boxShadow: "inset 0px 4px 4px rgba(0, 0, 0, 0.25)",
-  // };
 
   function handleClick() {
     if (isButtonLocked) return;
@@ -48,16 +43,10 @@ function BackButton() {
   }
 
   return (
-    <button
-      // className={"controls__button"}
-      onClick={handleClick}
-    // style={isLocked ? lockedButtonStyle : {}}
-    >
+    <Button onClick={handleClick} disabled={isButtonLocked}>
       go back
-      {activeCheats.backsteps && !activeCheats.unlimitedBacksteps && (
-        <span className="backstepsCounter">({backstepsLeft})</span>
-      )}
-    </button>
+      {activeCheats.backsteps && !activeCheats.unlimitedBacksteps && `(${backstepsLeft})`}
+    </Button>
   );
 }
 

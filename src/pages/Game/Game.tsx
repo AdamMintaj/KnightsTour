@@ -1,7 +1,7 @@
 import Board from "components/Board/Board";
 import Result from "components/Result/Result";
 import Controls from "components/Controls/Controls";
-import AchievementsList from "components/Achievements/AchievementsList";
+import Achievements from "components/Achievements/Achievements";
 import useGameContext from "context/GameContext";
 import useMarkAvailableSquares from "hooks/useMarkAvailableSquares";
 import useWatchGameStatus from "hooks/useWatchGameStatus";
@@ -24,7 +24,7 @@ function Game() {
     <Styled.Container>
       <Confetti />
       <Controls />
-      <AchievementsList />
+      <Achievements />
       {isGameFinished ? <Result /> : <Board />}
     </Styled.Container>
   );

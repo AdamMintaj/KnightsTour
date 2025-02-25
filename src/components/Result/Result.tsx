@@ -1,6 +1,7 @@
 import useGameContext from "context/GameContext";
 import { ActionType } from "context/gameReducer";
 import { GameStatus } from "context/gameTypes";
+import Button from "components/ui/Button/Button";
 
 // import "./Result.scss";
 
@@ -28,9 +29,9 @@ function Result() {
       <p className="result__text">
         {gameStatus === GameStatus.WON ? winMessage : loseMessage}
       </p>
-      <button className="result__button" onClick={handleClick}>
+      <Button onClick={handleClick}>
         {gameStatus === GameStatus.WON ? "play" : "try"} again
-      </button>
+      </Button>
     </div>
   );
 }

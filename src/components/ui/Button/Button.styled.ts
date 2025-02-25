@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 
 const lockedStyles = css`
 	background: #fff7f0;
-	box-shadow: inset 5px 5px 22px #999490, inset -5px -5px 22px #ffffff;
+	box-shadow: inset 5px 5px 10px #9c9792, inset -5px -5px 10px #ffffff;
 	color: rgba(0, 0, 0, 0.4);
 	cursor: auto;
 `;
@@ -23,11 +23,11 @@ export const Button = styled.button<{
 	cursor: pointer;
 
 	background: #fff7f0;
-	box-shadow: 5px 5px 22px #999490, -5px -5px 22px #ffffff;
+	box-shadow: 5px 5px 10px #9c9792, -5px -5px 10px #ffffff;
 
 	&:active {
 		background: #fff7f0;
-		box-shadow: inset 5px 5px 22px #999490, inset -5px -5px 22px #ffffff;
+		box-shadow: inset 5px 5px 10px #9c9792, inset -5px -5px 10px #ffffff;
 	}
 
 	${({ $locked }) => $locked && lockedStyles}

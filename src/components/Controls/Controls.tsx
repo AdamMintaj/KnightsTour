@@ -1,6 +1,7 @@
 import useGameContext from "context/GameContext";
 import { ActionType } from "context/gameReducer";
 import BackButton from "./components/BackButton/BackButton";
+import Button from "components/ui/Button/Button";
 
 // import "./Controls.scss";
 
@@ -13,7 +14,7 @@ function Controls() {
 
 	return (
 		<aside className="controls">
-			<button onClick={handleReset}>reset</button>
+			<Button onClick={handleReset}>reset</Button>
 			<BackButton />
 		</aside>
 	);
