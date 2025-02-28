@@ -11,7 +11,7 @@ function Logo() {
   // animationRunning is true while an animation is being played and prevents starting a next one until current is over
   const [animationRunning, setAnimationRunning] = useState(false);
   const lottieRef = useRef<LottieRefCurrentProps | null>(null);
-  const lastGameStatusValueRef = useRef<GameStatus | undefined>();
+  const lastGameStatusValueRef = useRef<GameStatus | undefined>(undefined);
 
   useEffect(() => {
     // when the game starts
