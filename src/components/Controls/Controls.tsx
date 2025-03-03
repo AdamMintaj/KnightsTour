@@ -3,7 +3,7 @@ import { ActionType } from "context/gameReducer";
 import BackButton from "./components/BackButton/BackButton";
 import Button from "components/ui/Button/Button";
 
-// import "./Controls.scss";
+import * as Styled from './Controls.styled';
 
 function Controls() {
 	const [{ }, dispatch] = useGameContext();
@@ -13,10 +13,10 @@ function Controls() {
 	}
 
 	return (
-		<aside className="controls">
+		<Styled.Container>
 			<Button onClick={handleReset}>reset</Button>
 			<BackButton />
-		</aside>
+		</Styled.Container>
 	);
 }
 

@@ -23,8 +23,8 @@ function Game() {
   return (
     <Styled.Container>
       <Confetti />
-      <Controls />
       <Achievements />
+      <Controls />
       {isGameFinished ? <Result /> : <Board />}
     </Styled.Container>
   );
