@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const Button = styled.button<{
 	$tip: string;
+	$tooltipOffset: string;
 }>`
 	appearance: none;
 	background-color: transparent;
@@ -13,7 +14,6 @@ export const Button = styled.button<{
 	&:focus {
 		&::after {
 			position: absolute;
-			content: "${({ $tip }) => $tip}";
 			top: 70%;
 			left: 70%;
 			width: 150px;
@@ -26,14 +26,8 @@ export const Button = styled.button<{
 			padding: 0.75rem;
 			cursor: auto;
 			z-index: 2;
+			content: "${({ $tip }) => $tip}";
+			translate: ${({ $tooltipOffset }) => $tooltipOffset};
 		}
 	}
-`;
-
-export const ButtonAlt = styled.button`
-	/* appearance: none; */
-	/* background-color: transparent; */
-	border: none;
-	position: relative;
-	cursor: pointer;
 `;

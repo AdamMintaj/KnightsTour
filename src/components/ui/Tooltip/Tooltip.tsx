@@ -1,7 +1,7 @@
 import { ReactComponent as Icon } from "assets/tooltip.svg";
-import { useId, useEffect } from "react";
+import { useId, useEffect, useState } from "react";
 
-import './tooltip.css';
+import * as Styled from './Tooltip.styled';
 
 interface TooltipProps {
   tip: string;
@@ -9,44 +9,39 @@ interface TooltipProps {
 
 const tooltipWidth = 150;
 
-// emotion 11 doesn't recognise popover attributes, so the component is styled with just css
-// css anchor isn't fully supported yet so there's a workaround to position the popover
+// css anchor isn't fully supported yet so there's a workaround to position the tooltip
 const Tooltip = ({ tip }: TooltipProps) => {
-  const popoverId = useId();
-  const containerId = useId();
+  const buttonId = useId();
+  const [tooltipOffset, setTooltipOffset] = useState('');
 
   useEffect(() => {
-    const popover = document.getElementById(popoverId);
-    if (!popover) return;
+    const button = document.getElementById(buttonId);
+    if (!button) return;
 
-    function setPopoverOffset() {
-      const containerRight = document.getElementById(containerId)?.getBoundingClientRect().right;
-      if (!containerRight) return;
+    const calculateOffset = () => {
+      const containerRight = button.getBoundingClientRect().right;
 
-      const availableSpace = window.innerWidth - containerRight;
-      popover!.style.translate = availableSpace < tooltipWidth ? `-${tooltipWidth - availableSpace}px` : '12px -9px';
+      const availableSpace = window.innerWidth - containerRight - 30;
+      setTooltipOffset(availableSpace < tooltipWidth ? `${availableSpace - tooltipWidth}px 10px` : '');
     }
 
-    function onBeforeToggle() {
-      setPopoverOffset();
-      popover!.removeEventListener('beforetoggle', onBeforeToggle);
+    const onBeforeClick = () => {
+      calculateOffset();
+      button.removeEventListener('pointerdown', onBeforeClick);
     }
 
-    popover.addEventListener('beforetoggle', onBeforeToggle);
-    window.addEventListener('resize', setPopoverOffset);
+    button.addEventListener('pointerdown', onBeforeClick);
+    window.addEventListener('resize', calculateOffset);
 
     return () => {
-      window.removeEventListener('resize', setPopoverOffset);
+      window.removeEventListener('resize', calculateOffset);
     }
   }, [])
 
   return (
-    <div id={containerId} className="container">
-      <button popoverTarget={popoverId} className="button">
-        <Icon />
-      </button>
-      <div id={popoverId} style={{ width: `${tooltipWidth}px` }} className="popover" popover="auto">{tip}</div>
-    </div>
+    <Styled.Button tabIndex={0} id={buttonId} $tip={tip} $tooltipOffset={tooltipOffset}>
+      <Icon />
+    </Styled.Button>
   );
 }
 
