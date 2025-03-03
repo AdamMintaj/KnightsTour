@@ -1,13 +1,18 @@
-import { AchievementData } from "components/Achievements/achievements";
+import { AchievementData } from "components/Achievements/achievementsData";
+import Toggle from "components/ui/Toggle/Toggle";
+
+import * as Styled from './Achievement.styled';
 
 interface AchievementProps {
   achievement: AchievementData,
   isCompleted: boolean,
   toggleCheat: () => void,
-  isCheatEnabled: boolean
+  isCheatEnabled: boolean,
+  handleTab: (id: string) => void,
+  isActive: boolean
 }
 
-const Achievement = ({ achievement, isCompleted, toggleCheat, isCheatEnabled }: AchievementProps) => {
+const Achievement = ({ achievement, isCompleted, toggleCheat, isCheatEnabled, handleTab, isActive }: AchievementProps) => {
   function handleInput() {
     if (isCompleted) {
       toggleCheat();
@@ -15,42 +20,15 @@ const Achievement = ({ achievement, isCompleted, toggleCheat, isCheatEnabled }: 
   }
 
   return (
-    <div className="achievement">
-      <div className="achievement__label">
-        <h3
-          className="achievement__name"
-        // onClick={() => props.handleItem(props.item.id)}
-        >
-          {achievement.name}
-        </h3>
-        <label className="switch" /*htmlFor={props.item.name}*/>
-          <input
-            className="switch__input"
-            type="checkbox"
-            // id={props.item.name}
-            // checked={props.enabled}
-            checked={isCheatEnabled}
-            onChange={handleInput}
-          />
-          <span
-          // className={
-          //   props.completed
-          //     ? "switch__toggle"
-          //     : "switch__toggle switch__toggle--disabled"
-          // }
-          ></span>
-        </label>
-      </div>
-      <div
-      // className={
-      //   props.isActive
-      //     ? "achievement__description achievement__description--active"
-      //     : "achievement__description"
-      // }
-      >
-        {/* <p>{props.item.description}</p> */}
-      </div>
-    </div>
+    <Styled.Container onClick={() => handleTab(achievement.name)} $isActive={isActive}>
+      <Styled.Label>
+        <Styled.Name>{achievement.name}</Styled.Name>
+        <Toggle checked={isCheatEnabled} onChange={handleInput} disabled={!isCompleted} />
+      </Styled.Label>
+      <Styled.Description $isActive={isActive}>
+        {achievement.description}
+      </Styled.Description>
+    </Styled.Container>
   );
 }
 
