@@ -22,6 +22,12 @@ export const Container = styled.aside<{ $mobilePopupOpen: boolean }>`
 	${({ $mobilePopupOpen }) => $mobilePopupOpen && openPopupStyle}
 `;
 
+export const MobileOnlyElement = styled.span`
+	@media (min-width: 1024px) {
+		display: none;
+	}
+`;
+
 export const Title = styled.h2`
 	font-size: 1.25rem;
 	font-weight: 400;

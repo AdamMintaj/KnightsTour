@@ -7,7 +7,12 @@ export const Container = styled.nav`
 	align-items: flex-end;
 	justify-content: center;
 	gap: 14px;
-	margin-right: 0.625rem;
+
+	@media (orientation: landscape) {
+		flex-direction: row;
+		align-items: center;
+		gap: 8vw;
+	}
 `;
 
 export const NavLink = styled(Link)`

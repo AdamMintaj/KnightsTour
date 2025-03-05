@@ -23,9 +23,13 @@ function Game() {
   return (
     <Styled.Container>
       <Confetti />
-      <Achievements />
-      <Controls />
-      {isGameFinished ? <Result /> : <Board />}
+      <Styled.InnerContainer>
+        <Styled.AsideContentWrapper>
+          <Controls />
+          <Achievements />
+        </Styled.AsideContentWrapper>
+        {isGameFinished ? <Result /> : <Board />}
+      </Styled.InnerContainer>
     </Styled.Container>
   );
 }

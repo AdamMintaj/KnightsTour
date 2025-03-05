@@ -61,9 +61,13 @@ const Achievements = () => {
 
   return (
     <>
-      <Button onClick={toggleMobilePopup}>achievements</Button>
+      <Styled.MobileOnlyElement>
+        <Button onClick={toggleMobilePopup}>achievements</Button>
+      </Styled.MobileOnlyElement>
       <Styled.Container $mobilePopupOpen={mobilePopupOpen}>
-        <CloseButton />
+        <Styled.MobileOnlyElement>
+          <CloseButton />
+        </Styled.MobileOnlyElement>
         <Styled.Title>achievements</Styled.Title>
         <EasyModeSection />
         <List />

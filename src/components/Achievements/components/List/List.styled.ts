@@ -5,4 +5,6 @@ export const Container = styled.ul`
 	display: flex;
 	flex-direction: column;
 	gap: 0.75rem;
+	margin-bottom: 0.75rem;
+	max-width: 500px;
 `;
