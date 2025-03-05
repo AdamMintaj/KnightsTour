@@ -21,12 +21,14 @@ function Result() {
       play again?
     </>
   );
+
   const loseMessage = (
     <>You lost!
       <br></br>
       <br></br>
       But you've fought a fair battle of {counter} steps.</>
   );
+
   return (
     <Styled.Container>
       <p>

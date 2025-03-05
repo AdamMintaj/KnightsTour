@@ -1,7 +1,6 @@
 import knight from 'assets/knight.png';
 import { SquareData } from 'context/gameTypes';
 
-import './Square.css'
 import * as Styled from './Square.styled';
 
 interface SquareProps {
@@ -17,14 +16,6 @@ interface SquareProps {
 
 const Square = ({ square, isCurrentSquare, onMove, pickUp, drop, grabbing, draggingEnabled, dragTo }: SquareProps) => {
 
-  const squareCursorStyle = {
-    cursor: grabbing
-      ? "grabbing"
-      : square.available
-        ? "pointer"
-        : "auto",
-  };
-
   function handleClick() {
     if (square.available) onMove(square);
   }
@@ -38,12 +29,11 @@ const Square = ({ square, isCurrentSquare, onMove, pickUp, drop, grabbing, dragg
   }
 
   return (
-    <div
-      className={`square 
-      	${square.available ? "square--available" : ""} 
-      	${square.closed ? "square--closed" : ""} 
-      	${isCurrentSquare ? "square--currentSquare" : ""}`}
-      style={squareCursorStyle}
+    <Styled.Container
+      $available={square.available}
+      $closed={square.closed}
+      $currentSquare={isCurrentSquare}
+      $isKnightGrabbed={grabbing}
       id={square.id.toString()}
       onClick={handleClick}
       onMouseUp={() => initiateDrop(square)}
@@ -61,7 +51,7 @@ const Square = ({ square, isCurrentSquare, onMove, pickUp, drop, grabbing, dragg
           onTouchStart={(e) => initiatePickUp(e)}
         />
       )}
-    </div>
+    </Styled.Container>
   );
 }
 
