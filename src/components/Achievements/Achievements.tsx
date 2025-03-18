@@ -11,7 +11,7 @@ import { CheatsData } from "context/gameTypes";
 
 import * as Styled from './Achievements.styled';
 
-const tooltip = 'Check this option to unlock all achievements. Not chivalrous, but a comfortable solution';
+const tooltip = 'Check this option to unlock all achievements. Not chivalrous, but a comfortable move.';
 
 const Achievements = () => {
   const [{ gameStatistics, activeCheats, easyMode }, dispatch] = useGameContext();
@@ -24,7 +24,7 @@ const Achievements = () => {
   function toggleEasyMode() {
     if (easyMode) {
 
-      // when turning off easy mode automatically disable cheats for achievements that were not completed
+      // when easy mode is turned off automatically disable cheats for achievements that were not completed
       let updatedActiveCheats: CheatsData = {
         ...activeCheats
       };
