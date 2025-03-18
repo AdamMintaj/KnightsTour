@@ -65,9 +65,9 @@ export const Answer = styled.p`
 	font-size: 0.8rem;
 	padding-top: 1em;
 	font-weight: 300;
+	max-width: 1000px;
 
 	@media (${mediaQuery.desktopLarge}) {
-		max-width: 1000px;
 		font-size: 0.875rem;
 	}
 `;
