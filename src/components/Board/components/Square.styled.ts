@@ -1,24 +1,23 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { Position } from "../Board";
+import { mediaQuery } from "styles/responsive";
+import theme from "styles/theme";
 
 const availableSquareStyle = css`
-	outline: 2px solid #fe5f00;
+	outline: 2px solid ${theme.colors.orange};
 
-	&:active {
-		background-color: #dfcac1;
-		box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+	@media (${mediaQuery.tablet}), (${mediaQuery.desktopLarge}) {
+		outline-width: 3px;
 	}
 `;
 
 const closedSquareStyle = css`
-	box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-	background-color: #bca79d;
+	background-color: rgb(215, 209, 203);
 `;
 
 const currentSquareStyle = css`
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	background-color: #fe5f00;
+	background-color: ${theme.colors.orange};
 `;
 
 export const Container = styled.div<{
@@ -29,9 +28,8 @@ export const Container = styled.div<{
 }>`
 	padding-top: 100%;
 	position: relative;
-	border-radius: 6px;
-	background-color: #e7dbdb;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	outline: 1px solid black;
+	border-radius: 15%;
 	user-select: none;
 	touch-action: none;
 	cursor: ${({ $available, $isKnightGrabbed }) =>
@@ -41,23 +39,6 @@ export const Container = styled.div<{
 	${({ $closed }) => $closed && closedSquareStyle};
 	${({ $currentSquare }) => $currentSquare && currentSquareStyle};
 `;
-
-// 	@media (orientation: landscape) and (max-height: 700px) {
-// 		outline-width: 2px;
-// 	}
-
-// 	// desktops
-// 	@media (min-width: 1100px) {
-// 		&--available {
-// 			outline: 3px solid #fe5f00;
-// 		}
-// 	}
-
-// 	//big desktops
-// 	@media (min-width: 1440px) {
-// 		border-radius: 13px;
-// 	}
-// }
 
 export const KnightIcon = styled.img<{
 	$draggingEnabled: boolean;

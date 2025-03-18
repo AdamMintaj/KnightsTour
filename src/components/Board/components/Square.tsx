@@ -35,6 +35,7 @@ const Square = ({ square, isCurrentSquare, onMove, pickUp, drop, grabbing, dragg
       $currentSquare={isCurrentSquare}
       $isKnightGrabbed={grabbing}
       id={square.id.toString()}
+      className='square'
       onClick={handleClick}
       onMouseUp={() => initiateDrop(square)}
       onTouchEnd={() => initiateDrop()}
