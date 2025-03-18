@@ -1,43 +1,40 @@
 import styled from "@emotion/styled";
+import { boardSize } from "components/Board/Board.styled";
+import { mediaQuery } from "styles/responsive";
 
 export const Container = styled.main`
-	flex-grow: 1;
-	padding: 0 1.25rem;
+	overflow: hidden;
 	position: relative;
+	flex-grow: 1;
+	padding-inline: 1.25rem;
+
+	@media (${mediaQuery.desktop}) {
+		padding-inline: 3rem;
+	}
 `;
 
 export const InnerContainer = styled.div`
 	height: 100%;
 	display: grid;
 	grid-template-rows: 27% 73%;
+	max-width: 550px;
+	margin: 0 auto;
 
-	@media (orientation: landscape) and (max-height: 700px) {
+	@media (${mediaQuery.landscapeSmallScreen}) {
 		grid-template-columns: 50% 50%;
 		grid-template-rows: auto;
+		max-width: none;
 	}
 
-	// desktops
-	/* @media (min-width: 1100px) { */
-	/* grid-template-columns: 33vw 67vw; */
-	// it's not very pretty, but this way the first row of the grid is aligned with the chessboard's first row
-	/* grid-template-rows:
-			calc((100% - min(70vh, 60vw)) / 2 + $cellWidthDesktop)
-			auto; */
-	/* } */
-
-	//big desktops
-	/* @media (min-width: 1440px) {
-		max-width: 1920px;
-		margin: 0 auto;
+	@media (${mediaQuery.desktop}) {
 		grid-template-columns: 33% 67%;
-		grid-template-rows:
-			calc((100% - min(67vh, 60vw)) / 2 + $cellWidthDesktopBig)
-			auto;
-	} */
+		grid-template-rows: auto;
+		max-width: 1500px;
+	}
 `;
 
 export const AsideContentWrapper = styled.div`
-	width: min(100%, 50vh);
+	width: ${boardSize.mobile};
 	grid-row: 1/2;
 	margin: 0 auto;
 	display: flex;
@@ -45,13 +42,33 @@ export const AsideContentWrapper = styled.div`
 	justify-content: center;
 	gap: 5%;
 
-	@media (orientation: landscape) and (max-height: 700px) {
-		height: min(75vh, 45vw);
-		width: min(75vh, 45vw);
+	@media (${mediaQuery.landscapeSmallScreen}) {
+		height: ${boardSize.landscapeSmallScreen};
+		width: ${boardSize.landscapeSmallScreen};
 		grid-column: 1/2;
 		grid-row: initial;
 		justify-content: flex-start;
 		align-self: center;
 		align-items: flex-start;
+	}
+
+	@media (${mediaQuery.desktop}) {
+		overflow: auto;
+		width: 350px;
+		display: grid;
+		gap: 0;
+		justify-content: stretch;
+
+		/* first row of the grid (for the control buttons) is aligned with the board's first row */
+		grid-template-rows:
+			calc(((100% - ${boardSize.desktop}) / 2) + ${boardSize.desktop} / 8)
+			auto;
+	}
+
+	@media (${mediaQuery.desktopLarge}) {
+		//prettier-ignore
+		grid-template-rows:
+			calc(((100% - ${boardSize.desktopLarge}) / 2) + ${boardSize.desktopLarge} / 8)
+			auto;
 	}
 `;
