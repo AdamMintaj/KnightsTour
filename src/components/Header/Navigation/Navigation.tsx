@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 import * as Styled from './Navigation.styled';
 
-/* Navigation only has links to two out of three existing routes, 
+/* At any time Navigation has links to only two out of three existing routes, 
 since linking to the current route makes no sense.
 
 Navigation links are rendered by mapping over navLinks array,
