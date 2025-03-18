@@ -20,7 +20,7 @@ const Achievement = ({ achievement, isCompleted, toggleCheat, isCheatEnabled, ha
   }
 
   return (
-    <Styled.Container onClick={() => handleTab(achievement.name)} $isActive={isActive}>
+    <Styled.Container onClick={() => handleTab(achievement.name)} >
       <Styled.Label>
         <Styled.Name>{achievement.name}</Styled.Name>
         <Toggle checked={isCheatEnabled} onChange={handleInput} disabled={!isCompleted} />
