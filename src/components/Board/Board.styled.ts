@@ -1,7 +1,15 @@
 import styled from "@emotion/styled";
+import { mediaQuery } from "styles/responsive";
+
+export const boardSize = {
+	mobile: "min(100%, 50vh)",
+	landscapeSmallScreen: "min(75vh, 45vw)",
+	desktop: "min(70vh, 500px)",
+	desktopLarge: "min(70vh, 550px)",
+};
 
 export const Container = styled.section`
-	width: min(100%, 50vh);
+	width: ${boardSize.mobile};
 	grid-row: 2/3;
 	align-self: flex-start;
 	display: grid;
@@ -10,32 +18,26 @@ export const Container = styled.section`
 	grid-template-rows: repeat(8, 1fr);
 	gap: 0.4rem;
 
-	@media (orientation: landscape) and (max-height: 700px) {
+	@media (orientation: landscape) {
 		grid-column: 2/3;
 		grid-row: initial;
-		width: min(75vh, 45vw);
 		align-self: center;
 	}
 
-	// tablets
-	/* @media (min-width: 700px) and (min-height: 700px) {
-		align-self: center;
-		gap: 0.6rem;
-	} */
+	@media (${mediaQuery.landscapeSmallScreen}) {
+		width: ${boardSize.landscapeSmallScreen};
+	}
 
-	// desktops
-	/* @media (min-width: 1100px) {
-		padding: 0;
-		grid-column: 2/3;
-		grid-row: 1/3;
+	@media (${mediaQuery.tablet}) {
 		gap: 0.6rem;
-		width: min(70vh, 90%);
-		margin: 0 auto;
-	} */
+	}
 
-	//big desktops
-	/* @media (min-width: 1440px) {
-		gap: 1rem;
-		max-width: 650px;
-	} */
+	@media (${mediaQuery.desktop}) {
+		width: ${boardSize.desktop};
+		gap: 0.6rem;
+	}
+
+	@media (min-width: 1440px) {
+		width: ${boardSize.desktopLarge};
+	}
 `;
