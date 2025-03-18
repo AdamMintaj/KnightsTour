@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { mediaQuery } from "styles/responsive";
 
 export const Container = styled.footer`
 	text-align: center;
@@ -6,20 +7,11 @@ export const Container = styled.footer`
 	font-size: 0.625rem;
 	padding: 0.875rem 0;
 
-	@media (max-height: 500px) and (orientation: landscape) {
+	@media (${mediaQuery.landscapeSmallScreen}) and (max-height: 500px) {
 		display: none;
 	}
 
-	/* @media (min-width: 740px) and (min-height: 800px) {
-	.footer {
-		font-size: 1rem;
+	@media (${mediaQuery.desktop}) {
+		font-size: 0.75rem;
 	}
-} */
-
-	/* @media (min-width: 1100px) {
-	.footer {
-		font-size: 0.625rem;
-		padding: 0.8rem 0;
-	}
-} */
 `;
