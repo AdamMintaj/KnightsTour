@@ -1,6 +1,9 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 
+const disabledBorderColor = "rgb(137, 135, 134)";
+const disabledBackgroundColor = "rgb(228, 225, 223)";
+
 export const Label = styled.label<{ $state: "on" | "off" | "disabled" }>`
 	width: 2rem;
 	height: 1rem;
@@ -10,22 +13,22 @@ export const Label = styled.label<{ $state: "on" | "off" | "disabled" }>`
 	display: block;
 	border-radius: 1rem;
 	transition: 0.4s;
-	background-color: rgb(255, 247, 240);
+	background-color: ${(props) => props.theme.colors.background};
 
 	${({ $state }) =>
 		$state === "disabled" &&
 		css`
-			border-color: rgba(0, 0, 0, 0.4);
-			background-color: rgba(217, 217, 217, 0.7);
+			border-color: ${disabledBorderColor};
+			background-color: ${disabledBackgroundColor};
 			cursor: auto;
 		`}
 
-	${({ $state }) =>
+	${({ $state, theme }) =>
 		$state === "on" &&
 		css`
 			background-image: linear-gradient(
 				to right bottom,
-				rgb(254, 95, 0),
+				${theme.colors.orangeSaturated},
 				white
 			);
 		`}
@@ -46,13 +49,13 @@ export const Span = styled.span<{
 	border: 1px solid black;
 	border-radius: 1rem;
 	transition: 0.4s;
-	background-color: rgb(255, 247, 240);
+	background-color: ${(props) => props.theme.colors.background};
 
 	${({ $state }) =>
 		$state === "disabled" &&
 		css`
-			border-color: rgba(0, 0, 0, 0.4);
-			background-color: rgba(217, 217, 217, 0.7);
+			border-color: ${disabledBorderColor};
+			background-color: ${disabledBackgroundColor};
 			cursor: auto;
 		`}
 
