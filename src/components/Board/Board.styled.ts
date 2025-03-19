@@ -24,20 +24,20 @@ export const Container = styled.section`
 		align-self: center;
 	}
 
-	@media (${mediaQuery.landscapeSmallScreen}) {
+	@media ${mediaQuery.landscapeSmallScreen} {
 		width: ${boardSize.landscapeSmallScreen};
 	}
 
-	@media (${mediaQuery.tablet}) {
+	@media ${mediaQuery.tablet} {
 		gap: 0.6rem;
 	}
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		width: ${boardSize.desktop};
 		gap: 0.6rem;
 	}
 
-	@media (min-width: 1440px) {
+	@media ${mediaQuery.desktopLarge} {
 		width: ${boardSize.desktopLarge};
 	}
 `;

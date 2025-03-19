@@ -8,7 +8,7 @@ export const Container = styled.ul`
 	gap: 0.75rem;
 	max-width: 500px;
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		overflow: auto;
 		scrollbar-width: thin;
 		padding-right: 1rem;

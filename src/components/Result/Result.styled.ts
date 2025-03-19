@@ -17,11 +17,11 @@ export const Container = styled.div`
 		align-self: center;
 	}
 
-	@media (${mediaQuery.tablet}) {
+	@media ${mediaQuery.tablet} {
 		font-size: 1.125rem;
 	}
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		font-size: 1.25rem;
 		max-width: 75%;
 		margin: 0 auto;

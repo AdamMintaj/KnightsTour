@@ -7,11 +7,11 @@ export const Container = styled.main`
 	overflow-y: auto;
 	flex-grow: 1;
 
-	@media (${mediaQuery.landscapeSmallScreen}) {
+	@media ${mediaQuery.landscapeSmallScreen} {
 		padding-inline: 1.25rem;
 	}
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		padding-inline: 3rem;
 	}
 `;
@@ -31,11 +31,11 @@ export const InnerContainer = styled.div`
 		* On dektops it's the same principle but the column takes 33% or 495px (33% from max-width 1500px)
 		and the controls are 350px wide.
 	*/
-	@media (${mediaQuery.landscapeSmallScreen}) {
+	@media ${mediaQuery.landscapeSmallScreen} {
 		padding-left: calc((50% - ${boardSize.landscapeSmallScreen}) / 2);
 	}
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		padding-left: calc((min(33%, 495px) - 350px) / 2);
 	}
 `;
@@ -45,7 +45,7 @@ export const Header = styled.h1`
 	margin-top: 1em;
 	font-weight: 400;
 
-	@media (${mediaQuery.desktopLarge}) {
+	@media ${mediaQuery.desktopLarge} {
 		font-size: 1.75rem;
 	}
 `;
@@ -55,7 +55,7 @@ export const Question = styled.h2`
 	padding-top: 1.75em;
 	font-weight: 400;
 
-	@media (${mediaQuery.desktopLarge}) {
+	@media ${mediaQuery.desktopLarge} {
 		font-size: 1.2rem;
 		padding-top: 2em;
 	}
@@ -67,7 +67,7 @@ export const Answer = styled.p`
 	font-weight: 300;
 	max-width: 1000px;
 
-	@media (${mediaQuery.desktopLarge}) {
+	@media ${mediaQuery.desktopLarge} {
 		font-size: 0.875rem;
 	}
 `;

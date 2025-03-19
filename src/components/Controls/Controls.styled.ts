@@ -5,11 +5,11 @@ export const Container = styled.aside`
 	display: flex;
 	gap: 1rem;
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		align-self: flex-end;
 	}
 
-	@media (${mediaQuery.desktopLarge}) {
+	@media ${mediaQuery.desktopLarge} {
 		margin-bottom: 1rem;
 	}
 `;

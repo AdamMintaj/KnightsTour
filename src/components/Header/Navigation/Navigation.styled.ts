@@ -15,13 +15,13 @@ export const Container = styled.nav`
 		align-items: center;
 	}
 
-	@media (${mediaQuery.landscapeSmallScreen}) {
+	@media ${mediaQuery.landscapeSmallScreen} {
 		width: ${boardSize.landscapeSmallScreen};
 		justify-content: flex-end;
 		gap: 8vw;
 	}
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		width: ${boardSize.desktop};
 		gap: 0;
 		margin: 0 auto;
@@ -30,7 +30,7 @@ export const Container = styled.nav`
 		justify-items: flex-end;
 	}
 
-	@media (${mediaQuery.desktopLarge}) {
+	@media ${mediaQuery.desktopLarge} {
 		width: ${boardSize.desktopLarge};
 	}
 `;
@@ -43,15 +43,15 @@ export const NavLink = styled(Link)`
 		color: ${(props) => props.theme.colors.orangeSaturated};
 	}
 
-	@media (${mediaQuery.landscapeSmallScreen}), (${mediaQuery.desktop}) {
+	@media ${mediaQuery.landscapeSmallScreen}, ${mediaQuery.desktop} {
 		font-size: clamp(1rem, calc(0.8rem + 1vh), 1.5rem);
 	}
 
-	@media (${mediaQuery.tablet}) {
+	@media ${mediaQuery.tablet} {
 		font-size: 1.125rem;
 	}
 
-	@media (${mediaQuery.desktopLarge}) {
+	@media ${mediaQuery.desktopLarge} {
 		font-size: 1.5rem;
 	}
 `;

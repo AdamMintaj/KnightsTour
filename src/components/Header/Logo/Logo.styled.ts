@@ -5,11 +5,11 @@ import { mediaQuery } from "styles/responsive";
 export const Container = styled.div`
 	height: 100%;
 
-	@media (${mediaQuery.landscapeSmallScreen}) {
+	@media ${mediaQuery.landscapeSmallScreen} {
 		width: ${boardSize.landscapeSmallScreen};
 	}
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		width: 33%;
 	}
 `;
@@ -24,11 +24,11 @@ export const Wrapper = styled.div`
 		translate: -15%;
 	}
 
-	@media (${mediaQuery.landscapeSmallScreen}) {
+	@media ${mediaQuery.landscapeSmallScreen} {
 		width: ${boardSize.landscapeSmallScreen};
 	}
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		width: min(100%, 350px);
 		margin: 0 auto;
 	}

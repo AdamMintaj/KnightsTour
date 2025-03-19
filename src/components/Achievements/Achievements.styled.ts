@@ -15,7 +15,7 @@ const openPopupStyle = css`
 	align-items: center;
 	background-color: ${theme.colors.background};
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		position: static;
 		width: auto;
 		height: auto;
@@ -30,7 +30,7 @@ export const Container = styled.aside<{ $mobilePopupOpen: boolean }>`
 
 	${({ $mobilePopupOpen }) => $mobilePopupOpen && openPopupStyle}
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		display: flex;
 		flex-direction: column;
 		padding: 0;
@@ -39,7 +39,7 @@ export const Container = styled.aside<{ $mobilePopupOpen: boolean }>`
 `;
 
 export const MobileOnlyElement = styled.span`
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		display: none;
 	}
 `;
@@ -49,16 +49,16 @@ export const Title = styled.h2`
 	font-weight: 400;
 	margin-bottom: 1.25rem;
 
-	@media (${mediaQuery.tablet}) {
+	@media ${mediaQuery.tablet} {
 		font-size: 1.5rem;
 	}
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		font-size: 1.25rem;
 		margin-bottom: 0.75rem;
 	}
 
-	@media (${mediaQuery.desktopLarge}) {
+	@media ${mediaQuery.desktopLarge} {
 		font-size: 1.5rem;
 		margin-bottom: 1.25rem;
 	}
@@ -74,7 +74,7 @@ export const EasyModeWrapper = styled.div`
 		margin-left: 0.5rem;
 	}
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		margin-left: 1rem;
 	}
 `;

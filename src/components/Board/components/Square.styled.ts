@@ -7,7 +7,7 @@ import theme from "styles/theme";
 const availableSquareStyle = css`
 	outline: 2px solid ${theme.colors.orange};
 
-	@media (${mediaQuery.tablet}), (${mediaQuery.desktopLarge}) {
+	@media ${mediaQuery.tablet}, ${mediaQuery.desktopLarge} {
 		outline-width: 3px;
 	}
 `;

@@ -30,7 +30,7 @@ export const Button = styled.button<{
 
 	${({ $locked }) => $locked && lockedButtonStyles}
 
-	@media (${mediaQuery.desktopLarge}), (${mediaQuery.tablet}) {
+	@media ${mediaQuery.desktopLarge}, ${mediaQuery.tablet} {
 		font-size: 1rem;
 		height: 48px;
 		padding-inline: 1.25rem;

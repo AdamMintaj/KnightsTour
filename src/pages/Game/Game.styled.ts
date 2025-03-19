@@ -8,7 +8,7 @@ export const Container = styled.main`
 	flex-grow: 1;
 	padding-inline: 1.25rem;
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		padding-inline: 3rem;
 	}
 `;
@@ -20,13 +20,13 @@ export const InnerContainer = styled.div`
 	max-width: 550px;
 	margin: 0 auto;
 
-	@media (${mediaQuery.landscapeSmallScreen}) {
+	@media ${mediaQuery.landscapeSmallScreen} {
 		grid-template-columns: 50% 50%;
 		grid-template-rows: auto;
 		max-width: none;
 	}
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		grid-template-columns: 33% 67%;
 		grid-template-rows: auto;
 		max-width: 1500px;
@@ -42,7 +42,7 @@ export const AsideContentWrapper = styled.div`
 	justify-content: center;
 	gap: 5%;
 
-	@media (${mediaQuery.landscapeSmallScreen}) {
+	@media ${mediaQuery.landscapeSmallScreen} {
 		height: ${boardSize.landscapeSmallScreen};
 		width: ${boardSize.landscapeSmallScreen};
 		grid-column: 1/2;
@@ -52,7 +52,7 @@ export const AsideContentWrapper = styled.div`
 		align-items: flex-start;
 	}
 
-	@media (${mediaQuery.desktop}) {
+	@media ${mediaQuery.desktop} {
 		overflow: auto;
 		width: 350px;
 		display: grid;
@@ -65,7 +65,7 @@ export const AsideContentWrapper = styled.div`
 			auto;
 	}
 
-	@media (${mediaQuery.desktopLarge}) {
+	@media ${mediaQuery.desktopLarge} {
 		//prettier-ignore
 		grid-template-rows:
 			calc(((100% - ${boardSize.desktopLarge}) / 2) + ${boardSize.desktopLarge} / 8)
