@@ -7,7 +7,7 @@ export const Container = styled.footer`
 	font-size: 0.625rem;
 	padding: 0.875rem 0;
 
-	@media ${mediaQuery.landscapeSmallScreen} and (max-height: 500px) {
+	@media (orientation: landscape) and (max-height: 500px) {
 		display: none;
 	}
 

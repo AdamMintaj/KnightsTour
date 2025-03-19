@@ -5,10 +5,10 @@ const breakpoints = {
 };
 
 export const mediaQuery = {
-	landscapeSmallScreen: `(max-width: ${
-		breakpoints.desktop - 1
-	}px) and (orientation: landscape)`,
+	landscapeSmallScreen: `
+		(max-width: ${breakpoints.desktop - 1}px) and (orientation: landscape), 
+		(max-height: 599px) and (orientation: landscape)`,
 	tablet: `(min-width: ${breakpoints.tablet}px) and (orientation: portrait)`,
-	desktop: `(min-width: ${breakpoints.desktop}px) and (orientation: landscape)`,
-	desktopLarge: `(min-width: ${breakpoints.desktopLarge}px)`,
+	desktop: `(min-width: ${breakpoints.desktop}px) and (min-height: 600px) and (orientation: landscape)`,
+	desktopLarge: `(min-width: ${breakpoints.desktopLarge}px) and (min-height: 750px)`,
 };
