@@ -4,7 +4,7 @@ const breakpoints = {
 	desktopLarge: 1440,
 };
 
-export const mediaQuery = {
+const mediaQuery = {
 	landscapeSmallScreen: `
 		(max-width: ${breakpoints.desktop - 1}px) and (orientation: landscape), 
 		(max-height: 599px) and (orientation: landscape)`,
@@ -12,3 +12,5 @@ export const mediaQuery = {
 	desktop: `(min-width: ${breakpoints.desktop}px) and (min-height: 600px) and (orientation: landscape)`,
 	desktopLarge: `(min-width: ${breakpoints.desktopLarge}px) and (min-height: 750px)`,
 };
+
+export default mediaQuery;

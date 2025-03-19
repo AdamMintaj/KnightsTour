@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { boardSize } from "components/Board/Board.styled";
-import { mediaQuery } from "styles/responsive";
+import mediaQuery from "styles/mediaQueries";
 
 export const Container = styled.div`
 	height: 100%;

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { Position } from "../Board";
-import { mediaQuery } from "styles/responsive";
+import mediaQuery from "styles/mediaQueries";
 import theme from "styles/theme";
 
 const availableSquareStyle = css`

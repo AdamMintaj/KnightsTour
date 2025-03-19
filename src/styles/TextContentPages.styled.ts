@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
-import { mediaQuery } from "./responsive";
+import mediaQuery from "./mediaQueries";
 import { boardSize } from "components/Board/Board.styled";
+import { commonLinkStyles } from "./common";
 
 export const Container = styled.main`
 	padding: 1rem 8vw;
@@ -73,9 +74,5 @@ export const Answer = styled.p`
 `;
 
 export const Link = styled.a`
-	color: black;
-
-	&:hover {
-		color: ${(props) => props.theme.colors.orangeSaturated};
-	}
+	${commonLinkStyles}
 `;
