@@ -7,8 +7,10 @@ const Header = () => {
 
   return (
     <Styled.Container>
-      <Logo />
-      <Navigation />
+      <Styled.InnerContainer>
+        <Logo />
+        <Navigation />
+      </Styled.InnerContainer>
     </Styled.Container>
   );
 }

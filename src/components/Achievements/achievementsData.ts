@@ -16,7 +16,7 @@ export interface AchievementData {
 	description: string;
 }
 
-const achievements: AchievementData[] = [
+const achievementsData: AchievementData[] = [
 	{
 		cheat: "unlimitedBacksteps",
 		validatedBy: "openTour",
@@ -51,4 +51,4 @@ const achievements: AchievementData[] = [
 	},
 ];
 
-export default achievements;
+export default achievementsData;

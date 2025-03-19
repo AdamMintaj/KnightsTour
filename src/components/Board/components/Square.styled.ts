@@ -1,20 +1,43 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { Position } from "../Board";
+import { mediaQuery } from "styles/responsive";
+import theme from "styles/theme";
 
 const availableSquareStyle = css`
-	outline: 2px solid #fe5f00;
+	outline: 2px solid ${theme.colors.orange};
+
+	@media ${mediaQuery.tablet}, ${mediaQuery.desktopLarge} {
+		outline-width: 3px;
+	}
 `;
 
 const closedSquareStyle = css`
-	border-radius: 6px;
-	background: #fff7f0;
-	box-shadow: inset 3px 3px 7px #999490, inset -3px -3px 7px #ffffff;
+	background-color: rgb(215, 209, 203);
 `;
 
 const currentSquareStyle = css`
-	background-color: #fe5f00;
-	box-shadow: 3px 3px 7px #999490, -3px -3px 7px #ffffff;
+	background-color: ${theme.colors.orange};
+`;
+
+export const Container = styled.div<{
+	$available: boolean;
+	$closed: boolean;
+	$currentSquare: boolean;
+	$isKnightGrabbed: boolean;
+}>`
+	padding-top: 100%;
+	position: relative;
+	outline: 1px solid black;
+	border-radius: 15%;
+	user-select: none;
+	touch-action: none;
+	cursor: ${({ $available, $isKnightGrabbed }) =>
+		$isKnightGrabbed ? "grabbing" : $available ? "pointer" : "auto"};
+
+	${({ $available }) => $available && availableSquareStyle};
+	${({ $closed }) => $closed && closedSquareStyle};
+	${({ $currentSquare }) => $currentSquare && currentSquareStyle};
 `;
 
 export const KnightIcon = styled.img<{
@@ -32,60 +55,3 @@ export const KnightIcon = styled.img<{
 	cursor: ${({ $draggingEnabled, $isGrabbed }) =>
 		$draggingEnabled ? ($isGrabbed ? "grabbing" : "grab") : "auto"};
 `;
-
-export const Container = styled.div<{
-	// $available: boolean;
-	// $closed: boolean;
-	// $currentSquare: boolean;
-}>`
-	padding-top: 100%;
-	position: relative;
-	user-select: none;
-	touch-action: none;
-
-	/* neumorphism */
-	border-radius: 6px;
-	background: #fff7f0;
-	box-shadow: 3px 3px 7px #999490, -3px -3px 7px #ffffff;
-`;
-/* ${({ $available }) => $available && availableSquareStyle};
-	${({ $closed }) => $closed && closedSquareStyle};
-	${({ $currentSquare }) => $currentSquare && currentSquareStyle}; */
-
-// .square {
-
-// 	&--available {
-// 		outline: 2px solid #fe5f00;
-
-// 		&:active {
-// 			background-color: #dfcac1;
-// 			box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-// 		}
-// 	}
-
-// 	&--closed {
-// 		box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-// 		background-color: #bca79d;
-// 	}
-
-// 	&--currentSquare {
-// 		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-// 		background-color: #fe5f00;
-// 	}
-
-// 	@media (orientation: landscape) and (max-height: 700px) {
-// 		outline-width: 2px;
-// 	}
-
-// 	// desktops
-// 	@media (min-width: 1100px) {
-// 		&--available {
-// 			outline: 3px solid #fe5f00;
-// 		}
-// 	}
-
-// 	//big desktops
-// 	@media (min-width: 1440px) {
-// 		border-radius: 13px;
-// 	}
-// }

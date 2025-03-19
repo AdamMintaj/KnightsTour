@@ -4,6 +4,8 @@ import { GameStatus } from "context/gameTypes";
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import lottieLogo from "./lottieLogo.json";
 
+import * as Styled from './Logo.styled';
+
 type AnimationSegment = [number, number];
 
 function Logo() {
@@ -11,7 +13,7 @@ function Logo() {
   // animationRunning is true while an animation is being played and prevents starting a next one until current is over
   const [animationRunning, setAnimationRunning] = useState(false);
   const lottieRef = useRef<LottieRefCurrentProps | null>(null);
-  const lastGameStatusValueRef = useRef<GameStatus | undefined>();
+  const lastGameStatusValueRef = useRef<GameStatus | undefined>(undefined);
 
   useEffect(() => {
     // when the game starts
@@ -41,6 +43,8 @@ function Logo() {
     onDOMLoaded: () => animate(animationSegments.enter),
     style: {
       height: "100%",
+      width: "max-content",
+      fontSize: 0,
       cursor: gameStatus === GameStatus.IN_PROGRESS || animationRunning ? "auto" : "pointer",
     },
     onClick: () => {
@@ -63,7 +67,13 @@ function Logo() {
     }
   }
 
-  return <Lottie {...options} />;
+  return (
+    <Styled.Container>
+      <Styled.Wrapper>
+        <Lottie {...options} />
+      </Styled.Wrapper>
+    </Styled.Container>
+  );
 }
 
 export default Logo;

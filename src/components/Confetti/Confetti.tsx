@@ -22,6 +22,7 @@ function Confetti() {
           width={windowSize.width}
           height={windowSize.height}
           recycle={false}
+          style={{ zIndex: 3 }}
           numberOfPieces={700}
           onConfettiComplete={() => disableConfetti()}
         />
