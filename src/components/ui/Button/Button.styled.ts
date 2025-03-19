@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { mediaQuery } from "styles/responsive";
+import mediaQuery from "styles/mediaQueries";
 
 const lockedButtonStyles = css`
 	border-color: rgb(153, 148, 144);

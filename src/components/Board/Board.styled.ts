@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { mediaQuery } from "styles/responsive";
+import mediaQuery from "styles/mediaQueries";
 
 export const boardSize = {
 	mobile: "min(100%, 50vh)",

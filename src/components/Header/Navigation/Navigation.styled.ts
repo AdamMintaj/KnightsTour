@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import { boardSize } from "components/Board/Board.styled";
 import { Link } from "react-router-dom";
-import { mediaQuery } from "styles/responsive";
+import { commonLinkStyles } from "styles/common";
+import mediaQuery from "styles/mediaQueries";
 
 export const Container = styled.nav`
 	display: flex;
@@ -37,11 +38,7 @@ export const Container = styled.nav`
 
 export const NavLink = styled(Link)`
 	text-decoration: none;
-	color: black;
-
-	&:hover {
-		color: ${(props) => props.theme.colors.orangeSaturated};
-	}
+	${commonLinkStyles}
 
 	@media ${mediaQuery.landscapeSmallScreen}, ${mediaQuery.desktop} {
 		font-size: clamp(1rem, calc(0.8rem + 1vh), 1.5rem);
