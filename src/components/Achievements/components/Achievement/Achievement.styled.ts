@@ -5,6 +5,7 @@ export const Container = styled.li`
 	list-style: none;
 	padding: 1rem;
 	border-radius: 1rem;
+	background-color: ${(props) => props.theme.colors.background};
 	cursor: pointer;
 	border: 1px solid black;
 `;

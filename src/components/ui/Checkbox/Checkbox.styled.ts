@@ -6,6 +6,7 @@ export const Label = styled.label`
 	height: 18px;
 	display: block;
 	border: 1px solid black;
+	background-color: ${(props) => props.theme.colors.background};
 	border-radius: 5px;
 	cursor: pointer;
 	position: relative;

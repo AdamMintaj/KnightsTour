@@ -15,7 +15,7 @@ export const Button = styled.button<{
 	font-size: 0.875rem;
 	appearance: none;
 	color: black;
-	background-color: transparent;
+	background-color: ${(props) => props.theme.colors.background};
 	border: 1px solid black;
 	border-radius: 10px;
 	height: 40px;

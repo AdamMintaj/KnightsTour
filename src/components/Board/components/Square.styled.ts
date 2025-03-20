@@ -28,6 +28,7 @@ export const Container = styled.div<{
 }>`
 	padding-top: 100%;
 	position: relative;
+	background-color: ${(props) => props.theme.colors.background};
 	outline: 1px solid black;
 	border-radius: 15%;
 	user-select: none;
