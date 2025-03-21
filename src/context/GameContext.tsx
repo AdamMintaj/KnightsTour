@@ -13,7 +13,7 @@ const initialGameState: GameState = {
   activeCheats: {
     unlimitedBacksteps: false,
     dragDrop: false,
-    promoCode: false,
+    prize: false,
     backsteps: false,
     confetti: false
   },

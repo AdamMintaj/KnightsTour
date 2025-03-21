@@ -47,7 +47,7 @@ export interface StatisticsData {
  * Data indicating which cheats are currently enabled
  * - `unlimitedBacksteps` (boolean)
  * - `dragDrop` (boolean)
- * - `promoCode` (boolean)
+ * - `prize` (boolean)
  * - `backsteps` (boolean)
  * - `confetti` (boolean)
  *
@@ -55,7 +55,7 @@ export interface StatisticsData {
 export interface CheatsData {
 	unlimitedBacksteps: boolean;
 	dragDrop: boolean;
-	promoCode: boolean;
+	prize: boolean;
 	backsteps: boolean;
 	confetti: boolean;
 }

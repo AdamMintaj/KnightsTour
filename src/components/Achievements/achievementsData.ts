@@ -31,10 +31,10 @@ const achievementsData: AchievementData[] = [
 			"Finish a closed tour and cheat! Drag and drop the knight around the board.",
 	},
 	{
-		cheat: "promoCode",
+		cheat: "prize",
 		validatedBy: "win3",
 		name: "champion",
-		description: "Win 3 times and get a Google Play promo code!",
+		description: "Win 3 times and cash out your prize!",
 	},
 	{
 		cheat: "backsteps",

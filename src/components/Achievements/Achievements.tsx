@@ -5,7 +5,7 @@ import Checkbox from "components/ui/Checkbox/Checkbox";
 import Tooltip from "components/ui/Tooltip/Tooltip";
 import List from "./components/List/List";
 import { ReactComponent as Icon } from 'assets/close.svg';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ActionType } from "context/gameReducer";
 import { CheatsData } from "context/gameTypes";
 
@@ -16,6 +16,16 @@ const tooltip = 'Check this option to unlock all achievements. Not chivalrous, b
 const Achievements = () => {
   const [{ gameStatistics, activeCheats, easyMode }, dispatch] = useGameContext();
   const [mobilePopupOpen, setMobilePopupOpen] = useState(false);
+
+  // close the popup on mobile devices when champion achievement get enabled, to show the prize
+  // cleanup function prevents closing if the user just flickers the switch 
+  useEffect(() => {
+    if (activeCheats.prize) {
+      const timeout = setTimeout(() => toggleMobilePopup(), 1500);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [activeCheats.prize])
 
   function toggleMobilePopup() {
     setMobilePopupOpen(prevValue => !prevValue)

@@ -20,6 +20,7 @@ const openPopupStyle = css`
 		width: auto;
 		height: auto;
 		align-items: initial;
+		background-color: transparent;
 	}
 `;
 

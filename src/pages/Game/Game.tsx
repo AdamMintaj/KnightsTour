@@ -8,6 +8,7 @@ import useWatchGameStatus from "hooks/useWatchGameStatus";
 import useUpdateStats from "hooks/useUpdateStats";
 import { GameStatus } from "context/gameTypes";
 import Confetti from "components/Confetti/Confetti";
+import Richard from "components/Richard/Richard";
 
 import * as Styled from './Game.styled';
 
@@ -22,6 +23,7 @@ function Game() {
 
   return (
     <Styled.Container>
+      <Richard />
       <Confetti />
       <Styled.InnerContainer>
         <Styled.AsideContentWrapper>
