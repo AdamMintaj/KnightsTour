@@ -1,5 +1,5 @@
 import { ReactComponent as Icon } from "assets/tooltip.svg";
-import { useId, useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import * as Styled from './Tooltip.styled';
 
@@ -11,11 +11,11 @@ const tooltipWidth = 150;
 
 // css anchor isn't fully supported yet so there's a workaround to position the tooltip
 const Tooltip = ({ tip }: TooltipProps) => {
-  const buttonId = useId();
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const [tooltipOffset, setTooltipOffset] = useState('');
 
   useEffect(() => {
-    const button = document.getElementById(buttonId);
+    const button = buttonRef.current;
     if (!button) return;
 
     const calculateOffset = () => {
@@ -39,7 +39,7 @@ const Tooltip = ({ tip }: TooltipProps) => {
   }, [])
 
   return (
-    <Styled.Button tabIndex={0} id={buttonId} $tip={tip} $tooltipOffset={tooltipOffset}>
+    <Styled.Button ref={buttonRef} tabIndex={0} $tip={tip} $tooltipOffset={tooltipOffset}>
       <Icon />
     </Styled.Button>
   );
