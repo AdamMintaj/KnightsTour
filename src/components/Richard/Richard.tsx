@@ -33,8 +33,8 @@ const Richard = () => {
   }
 
   function resetVideo(video: HTMLVideoElement) {
-    video.muted = true;
     video.pause();
+    video.muted = true;
     video.currentTime = 0;
   }
 
