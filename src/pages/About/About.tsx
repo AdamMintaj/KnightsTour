@@ -22,7 +22,7 @@ const About = () => {
           .
         </Styled.Answer>
 
-        <Styled.Question>so you made all this yourself?</Styled.Question>
+        <Styled.Question>so you made all this?</Styled.Question>
         <Styled.Answer>
           Yes, I designed and coded this app entirely by myself. All this
           is my own work, except for the chess knight icon, which I got
@@ -43,14 +43,6 @@ const About = () => {
             rel="noopener noreferrer"
           >
             ShatteredDisk
-          </Styled.Link>
-          ,{" "}
-          <Styled.Link
-            href="https://github.com/dozoisch/react-google-recaptcha"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            dozoisch
           </Styled.Link>{" "}
           and{" "}
           <Styled.Link

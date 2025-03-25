@@ -36,10 +36,9 @@ const HowTo = () => {
         <Styled.Question>here’s a tip</Styled.Question>
         <Styled.Answer>
           Completing this puzzle may be a challenging task, unless you’re
-          planning to google the solution or have an algorithm that will
-          solve it for you. If neither of the above is true and you’re
-          planning to find a solution on your own then it’s worth knowing
-          the Warnsdorff's rule. In short, the rule states that the knight
+          planning to google the solution. However, if you want to find a
+          solution on your own then it’s worth knowing the Warnsdorff's rule.
+          In short, the rule states that the knight
           should always move to the square from which there are fewest
           next possible steps (excluding squares that have been already
           visited). It doesn’t guarantee 100% success but it works

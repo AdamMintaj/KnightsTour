@@ -17,8 +17,7 @@ function Result() {
       Congratulations, you won!
       <br></br>
       <br></br>
-      However, there are 19,591,828,170,979,903 <a style={{ color: 'black' }} target="blank" href="https://en.wikipedia.org/wiki/Knight%27s_tour#Number_of_tours">other solutions</a>. Want to
-      play again?
+      However, there are 19,591,828,170,979,903 other solutions. Want to play again?
     </>
   );
 
