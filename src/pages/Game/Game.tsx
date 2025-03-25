@@ -13,7 +13,6 @@ import { useEffect } from "react";
 
 import * as Styled from './Game.styled';
 
-
 function Game() {
   const [{ gameStatus }, dispatch] = useGameContext();
 
