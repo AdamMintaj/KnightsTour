@@ -11,8 +11,8 @@ const useWatchGameStatus = () => {
 
   const noGamePlayed = counter === 0;
   const isGameWon = !board.some((cell) => cell.available) && board.every((cell) => cell.closed);
-  // checking if gameStatus is LOST in isGameLost makes it impossible to continue an already lost game
-  // by turning on the drag&drop cheat
+  // checking if gameStatus is LOST in isGameLost makes it impossible to continue a
+  // game that was already lost by turning on the drag&drop cheat
   const isGameLost = gameStatus === GameStatus.LOST ||
     (!activeCheats.dragDrop && !board.some((cell) => cell.available));
 
