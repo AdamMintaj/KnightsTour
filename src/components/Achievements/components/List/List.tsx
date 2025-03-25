@@ -12,10 +12,8 @@ const List = () => {
   const [activeTab, setActiveTab] = useState<string | null>()
 
   function toggleCheat(cheat: keyof CheatsData) {
-    const updatedActiveCheats: CheatsData = {
-      ...activeCheats, [cheat]: !activeCheats[cheat]
-    }
-    dispatch({ type: ActionType.TOGGLE_CHEAT, payload: updatedActiveCheats })
+    const updatedCheat = { [cheat]: !activeCheats[cheat] }
+    dispatch({ type: ActionType.TOGGLE_CHEAT, payload: updatedCheat })
   }
 
   function handleTab(name: string) {

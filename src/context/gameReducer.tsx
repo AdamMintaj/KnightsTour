@@ -46,7 +46,7 @@ interface UndoMoveAction {
 
 interface ToggleCheatAction {
   type: ActionType.TOGGLE_CHEAT,
-  payload: CheatsData
+  payload: CheatsData | Partial<CheatsData>
 }
 
 interface ToggleEasyModeAction {
@@ -100,7 +100,7 @@ export function reducer(state: GameState, action: ReducerAction): GameState {
     case ActionType.TOGGLE_CHEAT:
       return {
         ...state,
-        activeCheats: action.payload
+        activeCheats: { ...state.activeCheats, ...action.payload }
       }
     case ActionType.TOGGLE_EASY_MODE:
       return {

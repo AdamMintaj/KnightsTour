@@ -9,10 +9,7 @@ function Confetti() {
   const windowSize = useWindowSize();
 
   function disableConfetti() {
-    const updatedActiveCheats = {
-      ...activeCheats, confetti: false
-    }
-    dispatch({ type: ActionType.TOGGLE_CHEAT, payload: updatedActiveCheats })
+    dispatch({ type: ActionType.TOGGLE_CHEAT, payload: { confetti: false } })
   }
 
   return (

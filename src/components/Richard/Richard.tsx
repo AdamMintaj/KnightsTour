@@ -28,7 +28,7 @@ const Richard = () => {
 
   function handleError(error: any) {
     console.warn(error);
-    dispatch({ type: ActionType.TOGGLE_CHEAT, payload: { ...activeCheats, prize: false } });
+    dispatch({ type: ActionType.TOGGLE_CHEAT, payload: { prize: false } });
     // TODO: Add an alert once I have done the system
   }
 
@@ -49,6 +49,7 @@ const Richard = () => {
           src="https://shattereddisk.github.io/rickroll/rickroll.mp4"
           loop
           muted
+          preload="auto"
         />}
     </Styled.Container>
   );
