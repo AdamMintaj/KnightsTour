@@ -56,3 +56,15 @@ export const KnightIcon = styled.img<{
 	cursor: ${({ $draggingEnabled, $isGrabbed }) =>
 		$draggingEnabled ? ($isGrabbed ? "grabbing" : "grab") : "auto"};
 `;
+
+export const TooltipWrapper = styled.div`
+	position: absolute;
+	bottom: calc(50% - 10px);
+	right: calc(50% - 10px);
+	font-size: 0;
+
+	@media ${mediaQuery.tablet}, ${mediaQuery.desktop} {
+		right: 5px;
+		bottom: 2px;
+	}
+`;

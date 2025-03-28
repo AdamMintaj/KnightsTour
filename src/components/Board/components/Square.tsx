@@ -1,11 +1,14 @@
 import knight from 'assets/knight.png';
 import { SquareData } from 'context/gameTypes';
+import { ReactComponent as Icon } from "assets/loop.svg";
+import Tooltip from 'components/ui/Tooltip/Tooltip';
 
 import * as Styled from './Square.styled';
 
 interface SquareProps {
   square: SquareData;
   isCurrentSquare: boolean;
+  isStartingPoint: boolean;
   onMove: (square: SquareData) => void;
   pickUp: (e: MouseEvent | TouchEvent) => void;
   drop: (square?: SquareData) => void;
@@ -14,7 +17,9 @@ interface SquareProps {
   dragTo: { x: number, y: number };
 }
 
-const Square = ({ square, isCurrentSquare, onMove, pickUp, drop, grabbing, draggingEnabled, dragTo }: SquareProps) => {
+const closedTourTip = "This is your starting point. Finish one step from here to complete a closed tour.";
+
+const Square = ({ square, isCurrentSquare, isStartingPoint, onMove, pickUp, drop, grabbing, draggingEnabled, dragTo }: SquareProps) => {
 
   function handleClick() {
     if (square.available) onMove(square);
@@ -40,6 +45,11 @@ const Square = ({ square, isCurrentSquare, onMove, pickUp, drop, grabbing, dragg
       onMouseUp={() => initiateDrop(square)}
       onTouchEnd={() => initiateDrop()}
     >
+      {isStartingPoint && !isCurrentSquare &&
+        <Styled.TooltipWrapper>
+          <Tooltip customIcon={Icon} tip={closedTourTip} />
+        </Styled.TooltipWrapper>
+      }
       {isCurrentSquare && (
         <Styled.KnightIcon
           src={knight}

@@ -12,7 +12,7 @@ export interface Position {
 }
 
 const Board = () => {
-  const [{ board, currentSquare, activeCheats }, dispatch] = useGameContext();
+  const [{ board, currentSquare, activeCheats, history }, dispatch] = useGameContext();
   // grabbing shows if the knight is being currently dragged around
   const [grabbing, setGrabbing] = useState(false);
   // dragTo keeps track of the cursor's position while dragging
@@ -103,6 +103,7 @@ const Board = () => {
           key={square.id}
           square={square}
           isCurrentSquare={currentSquare ? currentSquare.id === square.id : false}
+          isStartingPoint={history[0] === square.id}
           onMove={moveTo}
           grabbing={grabbing}
           draggingEnabled={activeCheats.dragDrop}
