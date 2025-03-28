@@ -51,16 +51,6 @@ const Achievements = () => {
     dispatch({ type: ActionType.TOGGLE_EASY_MODE })
   }
 
-  const EasyModeSection = () => {
-    return (
-      <Styled.EasyModeWrapper>
-        <Styled.EasyModeTitle>easy mode</Styled.EasyModeTitle>
-        <Tooltip tip={tooltip} />
-        <Checkbox checked={easyMode} onChange={toggleEasyMode} />
-      </Styled.EasyModeWrapper>
-    )
-  }
-
   const CloseButton = () => {
     return (
       <Styled.CloseButton onClick={toggleMobilePopup}>
@@ -79,7 +69,11 @@ const Achievements = () => {
           <CloseButton />
         </Styled.MobileOnlyElement>
         <Styled.Title>achievements</Styled.Title>
-        <EasyModeSection />
+        <Styled.EasyModeWrapper>
+          <Styled.EasyModeTitle>easy mode</Styled.EasyModeTitle>
+          <Tooltip tip={tooltip} />
+          <Checkbox checked={easyMode} onChange={toggleEasyMode} />
+        </Styled.EasyModeWrapper>
         <List />
       </Styled.Container>
     </>
