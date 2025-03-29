@@ -8,7 +8,9 @@ export const boardSize = {
 	desktopLarge: "min(70vh, 550px)",
 };
 
-export const Container = styled.section`
+export const Container = styled.section<{ $isKnightGrabbed: boolean }>`
+	cursor: ${({ $isKnightGrabbed }) =>
+		$isKnightGrabbed ? "grabbing" : "auto"};
 	width: ${boardSize.mobile};
 	grid-row: 2/3;
 	align-self: flex-start;

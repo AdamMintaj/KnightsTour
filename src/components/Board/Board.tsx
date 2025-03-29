@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ActionType } from "context/gameReducer";
 import { SquareData } from "context/gameTypes";
 import useGameContext from "context/GameContext";
@@ -17,6 +17,7 @@ const Board = () => {
   const [grabbing, setGrabbing] = useState(false);
   // dragTo keeps track of the cursor's position while dragging
   const [dragTo, setDragTo] = useState<Position>({ x: 0, y: 0 });
+  const boardRef = useRef<HTMLTableSectionElement>(null);
 
   // This is the basic function that moves the knight around the board
   function moveTo(square: SquareData) {
@@ -25,6 +26,9 @@ const Board = () => {
 
   // This is the function that starts the drag and drop action
   function pickUp(e: MouseEvent | TouchEvent) {
+    const target = e.target as HTMLElement
+    if (target.id !== "knight") return;
+
     setGrabbing(true);
 
     // for mouse events
@@ -53,32 +57,24 @@ const Board = () => {
         y: e.changedTouches[0].clientY,
       });
 
-      // check if the target is off board. For mouse events there's a listener on Board component
-      const target = document.elementFromPoint(dragTo.x, dragTo.y);
-      if (!target ||
-        !(
-          target.classList.contains("square") ||
-          target.classList.contains("board")
-        )
-      ) cancelDrop();
+      // check if the knight is off board. For mouse events there's a listener on Board component
+      if (!boardRef.current) return;
+
+      const { left, right, top, bottom } = boardRef.current.getBoundingClientRect();
+
+      if (dragTo.x < left || dragTo.x > right || dragTo.y < top || dragTo.y > bottom) {
+        cancelDrop();
+      }
     }
   }
 
   // This function handles drop when the knight is dragged around the board.
-  // Passing square as parameter works only for mouse events. Since TouchEnd is binded with TouchStart the target square has to be determined in a different way
-  function drop(square?: SquareData) {
-    if (!grabbing) return;
-
+  function drop() {
     setGrabbing(false);
 
-    let targetSquare = square;
-
-    // for touch events
-    if (!targetSquare) {
-      const target = document.elementFromPoint(dragTo.x, dragTo.y);
-      if (!target || !target.classList.contains("square")) return;
-      targetSquare = board[Number(target.id)];
-    }
+    const target = document.elementFromPoint(dragTo.x, dragTo.y);
+    if (!target || !target.classList.contains("square")) return;
+    const targetSquare = board[Number(target.id)];
 
     // prevent drop on a square that's already been visited
     if (targetSquare.closed) return;
@@ -92,11 +88,15 @@ const Board = () => {
 
   return (
     <Styled.Container
-      className="board"
-      style={{ cursor: grabbing ? "grabbing" : "auto" }}
+      ref={boardRef}
+      $isKnightGrabbed={grabbing}
       onMouseLeave={grabbing ? () => cancelDrop() : undefined}
+      onMouseDown={activeCheats.dragDrop ? (e) => pickUp(e.nativeEvent) : undefined}
+      onTouchStart={activeCheats.dragDrop ? (e) => pickUp(e.nativeEvent) : undefined}
       onMouseMove={grabbing ? (e) => drag(e.nativeEvent) : undefined}
       onTouchMove={grabbing ? (e) => drag(e.nativeEvent) : undefined}
+      onMouseUp={grabbing ? drop : undefined}
+      onTouchEnd={grabbing ? drop : undefined}
     >
       {board.map(square =>
         <Square
@@ -108,8 +108,6 @@ const Board = () => {
           grabbing={grabbing}
           draggingEnabled={activeCheats.dragDrop}
           dragTo={dragTo}
-          pickUp={pickUp}
-          drop={drop}
         />)}
     </Styled.Container>
   )
