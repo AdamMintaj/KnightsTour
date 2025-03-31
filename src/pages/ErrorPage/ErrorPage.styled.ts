@@ -32,6 +32,7 @@ export const Image = styled.img`
 
 	@media ${mediaQuery.tablet}, ${mediaQuery.desktop} {
 		max-width: 250px;
+		margin-block: 2rem;
 	}
 `;
 
