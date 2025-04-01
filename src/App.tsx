@@ -3,7 +3,6 @@ import Header from './components/Header/Header';
 import { Outlet } from 'react-router-dom';
 import useUpdateStats from 'hooks/useUpdateStats';
 
-// TODO: error page
 // TODO: create alerts system (and use it in Richard component)
 
 const App = () => {
