@@ -1,46 +1,21 @@
-# Getting Started with Create React App
+# Knight's Tour
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Knight's Tour, a game based on a [classic chess puzzle](https://en.wikipedia.org/wiki/Knight%27s_tour).
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+In its current state the key points of the project are:
 
-### `npm start`
+-   A React app,
+-   with its state managed smoothly through a global state,
+-   basic routing with [React Router](https://reactrouter.com/home),
+-   and components styled with [Emotion](https://emotion.sh/docs/introduction).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## About about
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The project was started with the good old [Create React App](https://github.com/facebook/create-react-app), when it was still a recommended method for new React applications. Being one of my earliest truly organised and planned projects, it improved along the way and had its code refactored multiple times. Gradually, it came from a clunky app, coded with no type-safety, 300-line-long components, endless prop drilling and 700-line-long stylesheets to its current state.
+Looking back, working on the code and seeing how the tangled spaghetti melted and revealed an organised structure was the most statisfying part of the process, aside from solving the puzzle of how to build and code the logic of the game itelf.
 
-### `npm test`
+## See More
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+You can learn more about me and see the rest of my projects [here](https://maliszewski.vercel.app/).
