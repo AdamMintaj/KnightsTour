@@ -4,6 +4,7 @@ import useGameContext from "context/GameContext";
 import { ActionType } from "context/gameReducer";
 import { CheatsData } from "context/gameTypes";
 import { useState } from "react";
+import { useCallback } from "react";
 
 import * as Styled from './List.styled';
 
@@ -11,15 +12,15 @@ const List = () => {
   const [{ gameStatistics, activeCheats, easyMode }, dispatch] = useGameContext();
   const [activeTab, setActiveTab] = useState<string | null>()
 
-  function toggleCheat(cheat: keyof CheatsData) {
+  const toggleCheat = useCallback((cheat: keyof CheatsData) => {
     const updatedCheat = { [cheat]: !activeCheats[cheat] }
     dispatch({ type: ActionType.TOGGLE_CHEAT, payload: updatedCheat })
-  }
+  }, [activeCheats, dispatch])
 
-  function handleTab(name: string) {
+  const handleTab = useCallback((name: string) => {
     if (name === activeTab) setActiveTab(null);
     else setActiveTab(name);
-  }
+  }, [activeTab])
 
   return (
     <Styled.Container>
@@ -28,7 +29,7 @@ const List = () => {
           key={achievement.cheat}
           achievement={achievement}
           isCompleted={easyMode || gameStatistics[achievement.validatedBy] ? true : false}
-          toggleCheat={() => toggleCheat(achievement.cheat)}
+          toggleCheat={toggleCheat}
           isCheatEnabled={activeCheats[achievement.cheat]}
           handleTab={handleTab}
           isActive={activeTab === achievement.name}

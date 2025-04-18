@@ -1,21 +1,23 @@
 import { AchievementData } from "components/Achievements/achievementsData";
 import Toggle from "components/ui/Toggle/Toggle";
+import { memo } from "react";
+import { CheatsData } from "context/gameTypes";
 
 import * as Styled from './Achievement.styled';
 
 interface AchievementProps {
   achievement: AchievementData,
   isCompleted: boolean,
-  toggleCheat: () => void,
+  toggleCheat: (cheat: keyof CheatsData) => void,
   isCheatEnabled: boolean,
   handleTab: (id: string) => void,
   isActive: boolean
 }
 
-const Achievement = ({ achievement, isCompleted, toggleCheat, isCheatEnabled, handleTab, isActive }: AchievementProps) => {
+const Achievement = memo(({ achievement, isCompleted, toggleCheat, isCheatEnabled, handleTab, isActive }: AchievementProps) => {
   function handleInput() {
     if (isCompleted) {
-      toggleCheat();
+      toggleCheat(achievement.cheat);
     }
   }
 
@@ -30,6 +32,6 @@ const Achievement = ({ achievement, isCompleted, toggleCheat, isCheatEnabled, ha
       </Styled.Description>
     </Styled.Container>
   );
-}
+})
 
 export default Achievement;
