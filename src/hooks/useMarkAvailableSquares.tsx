@@ -13,11 +13,13 @@ const useMarkAvailableSquares = () => {
 
   useEffect(() => {
     if (currentSquare) {
-      const updatedBoard = board.map((square) =>
-        square.closed ?
-          { ...square, available: false } :
-          { ...square, available: checkIfValidMove(square, currentSquare) }
-      )
+      const updatedBoard = board.map(square => {
+        const shouldBeAvailable = checkIfValidMove(square, currentSquare) && !square.closed
+
+        if (shouldBeAvailable) return { ...square, available: true }
+        else if (!shouldBeAvailable && square.available) return { ...square, available: false }
+        else return square;
+      })
 
       dispatch({ type: ActionType.UPDATE_BOARD, payload: updatedBoard })
     } else dispatch({ type: ActionType.UPDATE_BOARD, payload: getNewBoard() });

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 import { ActionType } from "context/gameReducer";
 import { SquareData } from "context/gameTypes";
 import useGameContext from "context/GameContext";
@@ -20,9 +20,9 @@ const Board = () => {
   const boardRef = useRef<HTMLTableSectionElement>(null);
 
   // This is the basic function that moves the knight around the board
-  function moveTo(square: SquareData) {
+  const moveTo = useCallback((square: SquareData) => {
     dispatch({ type: ActionType.MOVE_TO, payload: square })
-  }
+  }, [dispatch])
 
   // This is the function that starts the drag and drop action
   function pickUp(e: MouseEvent | TouchEvent) {
@@ -107,7 +107,7 @@ const Board = () => {
           onMove={moveTo}
           grabbing={grabbing}
           draggingEnabled={activeCheats.dragDrop}
-          dragTo={dragTo}
+          dragTo={currentSquare?.id === square.id ? dragTo : undefined}
         />)}
     </Styled.Container>
   )
